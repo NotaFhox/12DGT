@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <header>
+        <div class="home">
+            <a href="#" data-page="home">Home</a>
+        </div>
+        <nav>
+            <ul id="nav-links">
+            </ul>
+        </nav>
+
+    </header>
+
+    <div id="content-container">
+        <div class="hero">
+            <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
+            <div class="hero-content">
+                <h2>LOREM IPSUM DOLOR</h2>
+                <button>Lorem</button>
+                <button>Ipsum</button>
+            </div>
+        </div>
+
+        <section class="services">
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="service-grid">
+                <div class="service-item">
+                    <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
+                    <div class="service-content">
+                        <h3>Lorem Ipsum</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                        <button>Select</button>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
+                    <div class="service-content">
+                        <h3>Dolor Sit</h3>
+                        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.</p>
+                        <button>Select</button>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
+                    <div class="service-content">
+                        <h3>Amet Consectetur</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                        <button>Select</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Lorem Ipsum</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadNavigation();
+            loadPage('home'); // Load the default page
+
+            function loadNavigation() {
+                fetch('get_navigation.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        const navLinks = document.getElementById('nav-links');
+                        navLinks.innerHTML = ''; // Clear existing links
+                        data.forEach(page => {
+                            const li = document.createElement('li');
+                            const a = document.createElement('a');
+                            a.href = '#';
+                            a.textContent = page.title;
+                            a.dataset.page = page.slug; // Use slug for page identification
+                            a.addEventListener('click', function(event) {
+                                event.preventDefault();
+                                loadPage(this.dataset.page);
+                            });
+                            li.appendChild(a);
+                            navLinks.appendChild(li);
+                        });
+                    });
+            }
+
+            function loadPage(pageSlug) {
+                fetch(`get_page.php?page=${pageSlug}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.content) {
+                            document.getElementById('content-container').innerHTML = data.content;
+                        } else {
+                            document.getElementById('content-container').innerHTML = '<p>Page not found.</p>';
+                        }
+                    });
+            }
+        });
+    </script>
+
+</body>
+</html>

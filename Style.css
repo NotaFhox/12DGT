@@ -1,0 +1,182 @@
+body {
+    font-family: 'Courier New', monospace; /* Retro font */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f8f8; /* Lighter background */
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px dashed #D2B48C; /* Beige dashed border */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 0; /* Square corners for retro look */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid transparent; /* Transparent border for hover effect */
+}
+
+nav a:hover {
+    background-color: #D2B48C;
+    color: #333;
+    border: 1px solid #333; /* Dark border on hover */
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    border-bottom: 2px dashed #D2B48C;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(20%); /* Slightly faded image */
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-content h2 {
+    font-size: 2.5em; /* Larger heading */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+}
+
+.hero-content button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 2px solid #D2B48C; /* Beige border */
+    background-color: transparent; /* Transparent background */
+    color: #333;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-content button:hover {
+    background-color: #D2B48C;
+    color: #333;
+}
+
+.services {
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 2px dashed #D2B48C;
+}
+
+.services h2 {
+    margin-bottom: 30px;
+    text-transform: uppercase; /* Uppercase headings */
+    letter-spacing: 2px; /* Spaced letters */
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.service-item {
+    background-color: white;
+    border-radius: 0; /* Square corners */
+    overflow: hidden;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    border: 2px solid #D2B48C;
+}
+
+.service-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    
+}
+
+.service-content {
+    padding: 20px;
+}
+
+.service-content h3 {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.service-content p {
+    margin-bottom: 20px;
+}
+
+.service-content button {
+    padding: 8px 16px;
+    border: 2px solid #D2B48C;
+    background-color: transparent;
+    color: #333;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.service-content button:hover {
+    background-color: #D2B48C;
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    border-top: 2px dashed #D2B48C;
+}
+
+.home {
+    padding: 8px 16px;
+    
+    background-color: transparent;
+    color: #333;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home:hover { background-color: #D2B48C;
+    color: #333;
+    border: 2px solid #D2B48C;}
+    
+/* Style.css (same as before) */
+body {
+    font-family: 'Courier New', monospace; /* Retro font */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f8f8; /* Lighter background */
+}
+
+/* ... (rest of your CSS remains the same) ... */

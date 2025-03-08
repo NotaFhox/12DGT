@@ -1,0 +1,13 @@
+CREATE TABLE pages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    content TEXT
+);
+
+INSERT INTO pages (title, slug, content) VALUES
+('Home', 'home', '<div class="hero"><img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder"><div class="hero-content"><h2>LOREM IPSUM DOLOR</h2><button>Lorem</button><button>Ipsum</button></div></div>'),
+('Booking', 'booking', '<section class="services"><h2>Booking Services</h2><p>Book your services here.</p></section>'),
+('Events', 'events', '<section class="services"><h2>Upcoming Events</h2><p>Check out our events.</p></section>'),
+('Placeholder1', 'placeholder1', '<section class="services"><h2>Placeholder 1</h2><p>This is placeholder 1.</p></section>'),
+('Placeholder2', 'placeholder2', '<section class="services"><h2>Placeholder 2</h2><p>This is placeholder 2.</p></section>');
