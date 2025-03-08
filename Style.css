@@ -1,9 +1,9 @@
 body {
-    font-family: 'Courier New', monospace; /* Retro font */
+    font-family: 'Courier New', monospace;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f8f8f8; /* Lighter background */
+    background-color: #f8f8f8;
 }
 
 header {
@@ -12,7 +12,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px dashed #D2B48C; /* Beige dashed border */
+    border-bottom: 2px dashed #D2B48C;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
 }
 
 nav ul {
@@ -32,15 +36,15 @@ nav a {
     text-decoration: none;
     color: #333;
     padding: 8px 16px;
-    border-radius: 0; /* Square corners for retro look */
+    border-radius: 0;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border: 1px solid transparent; /* Transparent border for hover effect */
+    border: 1px solid transparent;
 }
 
 nav a:hover {
     background-color: #D2B48C;
     color: #333;
-    border: 1px solid #333; /* Dark border on hover */
+    border: 1px solid #333;
 }
 
 .hero {
@@ -48,13 +52,21 @@ nav a:hover {
     text-align: center;
     color: white;
     border-bottom: 2px dashed #D2B48C;
+    width: 100vw; /* Fill viewport width */
+    height: 100vh; /* Fill viewport height */
+    overflow: hidden;
+    margin: 0; /* Remove margins */
+    padding: 0; /* Remove padding */
 }
 
 .hero img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Fill parent container */
+    height: 100%;
     display: block;
-    filter: grayscale(20%); /* Slightly faded image */
+    filter: grayscale(20%);
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
 }
 
 .hero-content {
@@ -65,16 +77,16 @@ nav a:hover {
 }
 
 .hero-content h2 {
-    font-size: 2.5em; /* Larger heading */
+    font-size: 2.5em;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content button {
     padding: 10px 20px;
     margin: 0 10px;
-    border: 2px solid #D2B48C; /* Beige border */
-    background-color: transparent; /* Transparent background */
+    border: 2px solid #D2B48C;
+    background-color: transparent;
     color: #333;
     cursor: pointer;
     border-radius: 0;
@@ -94,8 +106,8 @@ nav a:hover {
 
 .services h2 {
     margin-bottom: 30px;
-    text-transform: uppercase; /* Uppercase headings */
-    letter-spacing: 2px; /* Spaced letters */
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .service-grid {
@@ -107,9 +119,9 @@ nav a:hover {
 
 .service-item {
     background-color: white;
-    border-radius: 0; /* Square corners */
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     border: 2px solid #D2B48C;
 }
 
@@ -117,7 +129,6 @@ nav a:hover {
     width: 100%;
     height: auto;
     display: block;
-    
 }
 
 .service-content {
@@ -158,7 +169,6 @@ footer {
 
 .home {
     padding: 8px 16px;
-    
     background-color: transparent;
     color: #333;
     cursor: pointer;
@@ -166,17 +176,9 @@ footer {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.home:hover { background-color: #D2B48C;
+.home:hover {
+    background-color: #D2B48C;
     color: #333;
-    border: 2px solid #D2B48C;}
-    
-/* Style.css (same as before) */
-body {
-    font-family: 'Courier New', monospace; /* Retro font */
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f8f8f8; /* Lighter background */
+    border: 2px solid #D2B48C;
 }
-
-/* ... (rest of your CSS remains the same) ... */
+/* No further changes needed, all styling is complete*/
