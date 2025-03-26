@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorem Ipsum</title>
-    <link rel="stylesheet" href="Style.css">
+    <title>Stoney Homestead</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -13,77 +13,11 @@
             </ul>
         </nav>
     </header>
-    <div id="content-container">
+    <div id="content-container" class="fade-in">
     </div>
     <footer>
-        <p>&copy; 2024 CJ terrible site</p>
+        <p>&copy; 2025 Website Copyright</p>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            loadNavigation();
-            loadPage('home');
-
-            document.querySelectorAll('header a').forEach(link => {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    if(this.dataset.page === "faq"){
-                        loadPage("home");
-                        setTimeout(function(){
-                            window.scrollTo({
-                                top: document.getElementById('content-container').scrollHeight,
-                                behavior: 'smooth'
-                            });
-                        }, 10);
-                    }else{
-                        loadPage(this.dataset.page);
-                    }
-                });
-            });
-
-            function loadNavigation() {
-                fetch('get_navigation.php')
-                    .then(response => response.json())
-                    .then(data => {
-                        const navLinks = document.getElementById('nav-links');
-                        navLinks.innerHTML = '';
-                        data.forEach(page => {
-                            const li = document.createElement('li');
-                            const a = document.createElement('a');
-                            a.href = '#';
-                            a.textContent = page.title;
-                            a.dataset.page = page.slug;
-                            a.addEventListener('click', function(event) {
-                                event.preventDefault();
-                                if(this.dataset.page === "faq"){
-                                    loadPage("home");
-                                    setTimeout(function(){
-                                        window.scrollTo({
-                                            top: document.getElementById('content-container').scrollHeight,
-                                            behavior: 'smooth'
-                                        });
-                                    }, 10);
-                                }else{
-                                    loadPage(this.dataset.page);
-                                }
-                            });
-                            li.appendChild(a);
-                            navLinks.appendChild(li);
-                        });
-                    });
-            }
-
-            function loadPage(pageSlug) {
-                fetch(`get_page.php?page=${pageSlug}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.content) {
-                            document.getElementById('content-container').innerHTML = data.content;
-                        } else {
-                            document.getElementById('content-container').innerHTML = '<p>Page not found.</p>';
-                        }
-                    });
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

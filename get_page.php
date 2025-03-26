@@ -1,15 +1,8 @@
 <?php
-
-/**
- * get_page.php
- *
- * This script retrieves page content based on the 'page' parameter and returns it as JSON.
- */
-
-// Set the content type to JSON
+// Set content type to JSON
 header('Content-Type: application/json');
 
-// Get the page parameter from the query string
+// Get the page parameter
 $page = $_GET['page'];
 
 // Determine the content based on the page parameter
@@ -28,7 +21,8 @@ switch ($page) {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <div class="service-grid">
                 <div class="service-item">
-                    <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
+                                    <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
+
                     <div class="service-content">
                         <h3>Lorem Ipsum</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
@@ -67,7 +61,19 @@ switch ($page) {
         </section>';
         break;
     case 'booking':
-        $content = '<h1>Booking Page</h1>';
+        $content = '<div class="booking-page">
+        <h1>Booking Page</h1>
+            <form id="booking-form" class="booking-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="booking-response"></div>
+        </div>';
         break;
     case 'events':
         $content = '<h1>Events Page</h1>';
@@ -80,7 +86,6 @@ switch ($page) {
         break;
 }
 
-// Return the content of this file as a JSON file
+// Return the content as JSON
 echo json_encode(['content' => $content]);
-
 ?>
