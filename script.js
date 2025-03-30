@@ -137,24 +137,57 @@ document.addEventListener('DOMContentLoaded', function() {
     // ╔═════════════════════════════════╗
     // ║ Dropdown menu functionality     ║
     // ╚═════════════════════════════════╝
+    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
     const menuToggle = document.createElement('button');
-    menuToggle.className = 'menu-toggle';
+    
+    // Enhanced Accessibility
     menuToggle.setAttribute('aria-label', 'Toggle navigation menu');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    
+    menuToggle.className = 'menu-toggle';
     menuToggle.innerHTML = `
+        <span class="sr-only">Menu</span>
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
     `;
 
-    const header = document.querySelector('header');
     header.appendChild(menuToggle);
 
-    const nav = document.querySelector('nav');
-    const navUl = nav.querySelector('ul');
-
     menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('mobile-dropdown');
+        const isOpen = nav.classList.toggle('mobile-dropdown');
         menuToggle.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', isOpen);
+        
+        // Trap focus within nav when open
+        if (isOpen) {
+            const focusableElements = nav.querySelectorAll('a');
+            if (focusableElements.length) {
+                focusableElements[0].focus();
+            }
+        }
+    });
+
+    // Keyboard Navigation
+    nav.addEventListener('keydown', function(e) {
+        const navLinks = nav.querySelectorAll('a');
+        const currentIndex = Array.from(navLinks).indexOf(document.activeElement);
+
+        switch(e.key) {
+            case 'ArrowDown':
+            case 'ArrowRight':
+                e.preventDefault();
+                const nextIndex = (currentIndex + 1) % navLinks.length;
+                navLinks[nextIndex].focus();
+                break;
+            case 'ArrowUp':
+            case 'ArrowLeft':
+                e.preventDefault();
+                const prevIndex = (currentIndex - 1 + navLinks.length) % navLinks.length;
+                navLinks[prevIndex].focus();
+                break;
+        }
     });
 
     // Close dropdown when clicking outside
@@ -168,22 +201,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Prevent dropdown from closing when clicking inside nav
     nav.addEventListener('click', function(event) {
         event.stopPropagation();
-    });
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
-    
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            nav.classList.toggle('mobile-dropdown');
-        });
-    
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
-                menuToggle.classList.remove('active');
-                nav.classList.remove('mobile-dropdown');
-            }
-        });
     });
 });

@@ -11,9 +11,7 @@ switch ($page) {
         $content = '<div class="hero">
             <img src="Images/heroimage.png" alt="Stoney Homestead, Sunrise, Sun on house, Beautiful.">
             <div class="hero-content">
-                <h2>LOREM IPSUM DOLOR</h2>
-                <button>Lorem</button>
-                <button>Ipsum</button>
+                <h2>Stoney Homestead</h2>
             </div>
         </div>
         <section class="services">
@@ -76,7 +74,26 @@ switch ($page) {
         </div>';
         break;
     case 'events':
-        $content = '<h1>Events Page</h1>';
+        $content = '<div class="events-page">
+        <h1>Upcoming Events</h1>
+        <div id="facebook-events" class="events-container">
+            <div class="loading-spinner">Loading events...</div>
+        </div>
+        <section class="facebook-page">
+            <h2>Follow Us on Facebook</h2>
+            <div class="fb-page" 
+                data-href="https://www.facebook.com/StoneyHomestead" 
+                data-tabs="timeline" 
+                data-width="500" 
+                data-height="600" 
+                data-small-header="false" 
+                data-adapt-container-width="true" 
+                data-hide-cover="false" 
+                data-show-facepile="true">
+            </div>
+        </section>
+    </div>
+    <script src="events.js"></script>';
         break;
     case 'gallery':
         $content = '<h1>Gallery Page</h1>';
