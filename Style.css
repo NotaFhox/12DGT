@@ -1,4 +1,7 @@
-body {
+/* ╔═════════════════════════════════╗
+   ║ Body and document base styles    ║
+   ╚═════════════════════════════════╝ */
+   body {
     font-family: 'Courier New', monospace;
     margin: 0;
     padding: 0;
@@ -15,6 +18,9 @@ html, body {
     overflow-x: hidden;
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Header styles                    ║
+   ╚═════════════════════════════════╝ */
 header {
     background-color: #fff;
     padding: 20px;
@@ -28,11 +34,17 @@ header {
     width: 100%;
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Navigation container styles      ║
+   ╚═════════════════════════════════╝ */
 nav {
     width: 100%;
     max-width: 1200px;
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Navigation list styles           ║
+   ╚═════════════════════════════════╝ */
 nav ul {
     list-style: none;
     display: flex;
@@ -77,6 +89,9 @@ nav ul li {
     flex-shrink: 0;
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Navigation link styles           ║
+   ╚═════════════════════════════════╝ */
 nav a {
     text-decoration: none;
     color: #333;
@@ -110,7 +125,9 @@ nav a:hover {
     border: 2px solid #D2B48C;
 }
 
-/* Mobile Responsiveness */
+/* ╔═════════════════════════════════╗
+   ║ Mobile responsive styles         ║
+   ╚═════════════════════════════════╝ */
 @media screen and (max-width: 768px) {
     header {
         padding: 10px;
@@ -136,7 +153,9 @@ nav a:hover {
     }
 }
 
-/* Ensure navigation is always visible */
+/* ╔═════════════════════════════════╗
+   ║ Small screen navigation styles   ║
+   ╚═════════════════════════════════╝ */
 @media screen and (max-width: 480px) {
     header {
         display: block;
@@ -177,8 +196,9 @@ nav a:hover {
     }
 }
 
-/* Rest of the existing CSS remains the same */
-
+/* ╔═════════════════════════════════╗
+   ║ Active navigation state styles   ║
+   ╚═════════════════════════════════╝ */
 nav a.active::after {
     content: '';
     position: absolute;
@@ -196,7 +216,9 @@ nav a.active::after {
     opacity: 1;
 }
 
-
+/* ╔═════════════════════════════════╗
+   ║ Tablet view responsive styles    ║
+   ╚═════════════════════════════════╝ */
 @media screen and (max-width: 768px) {
     header {
         padding: 10px;
@@ -217,7 +239,9 @@ nav a.active::after {
     }
 }
 
-
+/* ╔═════════════════════════════════╗
+   ║ Mobile header adjustments        ║
+   ╚═════════════════════════════════╝ */
 @media screen and (max-width: 480px) {
     header {
         display: block;
@@ -250,8 +274,10 @@ nav a.active::after {
     }
 }
 
-
-
+/* ╔═════════════════════════════════╗
+   ║ Navigation hover and active      ║
+   ║ indicator styles                 ║
+   ╚═════════════════════════════════╝ */
 nav a:hover {
     background-color: #D2B48C;
     color: #333;
@@ -275,7 +301,9 @@ nav a.active::after {
     opacity: 1;
 }
 
-/* Mobile Responsiveness */
+/* ╔═════════════════════════════════╗
+   ║ Tablet header layout             ║
+   ╚═════════════════════════════════╝ */
 @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
@@ -298,7 +326,9 @@ nav a.active::after {
     }
 }
 
-/* Existing CSS remains the same, with these additional styles */
+/* ╔═════════════════════════════════╗
+   ║ Mobile menu & dropdown styles    ║
+   ╚═════════════════════════════════╝ */
 @media screen and (max-width: 480px) {
     header {
         position: relative;
@@ -377,6 +407,9 @@ nav a.active::after {
     }
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Tablet navigation adjustments    ║
+   ╚═════════════════════════════════╝ */
 @media screen and (max-width: 768px) {
     nav ul {
         justify-content: center; /* Ensure the nav links remain centered */
@@ -394,13 +427,18 @@ nav a.active::after {
     }
 }
 
-/* Hide dropdown button on larger screens */
+/* ╔═════════════════════════════════╗
+   ║ Desktop toggle button visibility ║
+   ╚═════════════════════════════════╝ */
 @media screen and (min-width: 769px) {
     .menu-toggle {
         display: none;
     }
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Hero section styles              ║
+   ╚═════════════════════════════════╝ */
 .hero {
     position: relative;
     text-align: center;
@@ -412,8 +450,6 @@ nav a.active::after {
     margin: 0;
     padding: 0;
 }
-
-/* (Remaining CSS from the original document continues...) */
 
 .hero img {
     width: 100%;
@@ -454,6 +490,9 @@ nav a.active::after {
     color: #333;
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Services section styles          ║
+   ╚═════════════════════════════════╝ */
 .services {
     padding: 40px 20px;
     text-align: center;
@@ -515,6 +554,9 @@ nav a.active::after {
     color: #333;
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Footer styles                    ║
+   ╚═════════════════════════════════╝ */
 footer {
     text-align: center;
     padding: 20px 0;
@@ -524,6 +566,9 @@ footer {
     position: relative; /* Ensure it stays at the bottom of the page */
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Home button styles               ║
+   ╚═════════════════════════════════╝ */
 .home {
     padding: 8px 16px;
     background-color: transparent;
@@ -539,7 +584,9 @@ footer {
     border: 2px solid #D2B48C;
 }
 
-/* Booking Page Styles */
+/* ╔═════════════════════════════════╗
+   ║ Booking page styles              ║
+   ╚═════════════════════════════════╝ */
 .booking-page {
     padding: 40px 20px;
     text-align: center;
@@ -619,6 +666,9 @@ footer {
     background-color: #f0f0f0;
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Animation styles                 ║
+   ╚═════════════════════════════════╝ */
 .fade-in {
     animation: fadeIn 0.5s ease-in-out forwards;
 }
@@ -636,7 +686,9 @@ footer {
     }
 }
 
-/* Dropdown Menu Styles */
+/* ╔═════════════════════════════════╗
+   ║ Dropdown menu toggle styles      ║
+   ╚═════════════════════════════════╝ */
 .menu-toggle {
     display: flex;
     flex-direction: column;
@@ -680,7 +732,9 @@ footer {
     transform: rotate(45deg) translate(-4px, -5px);
 }
 
-/* Mobile Dropdown Styles */
+/* ╔═════════════════════════════════╗
+   ║ Mobile dropdown menu styles      ║
+   ╚═════════════════════════════════╝ */
 @media screen and (max-width: 768px) {
     header {
         position: relative;
@@ -792,7 +846,9 @@ footer {
     }
 }
 
-/* Hide menu toggle on larger screens */
+/* ╔═════════════════════════════════╗
+   ║ Desktop menu toggle visibility   ║
+   ╚═════════════════════════════════╝ */
 @media screen and (min-width: 769px) {
     .menu-toggle {
         display: none !important;
@@ -809,7 +865,9 @@ footer {
     }
 }
 
-/* Events Page Styles */
+/* ╔═════════════════════════════════╗
+   ║ Events page styles               ║
+   ╚═════════════════════════════════╝ */
 .events-page {
     max-width: 1200px;
     margin: 0 auto;
@@ -856,7 +914,9 @@ footer {
     padding: 20px;
 }
 
-/* Accessibility Styles */
+/* ╔═════════════════════════════════╗
+   ║ Accessibility helper styles      ║
+   ╚═════════════════════════════════╝ */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -869,7 +929,9 @@ footer {
     border: 0;
 }
 
-/* Embedded Facebook Page Styles */
+/* ╔═════════════════════════════════╗
+   ║ Facebook embed styles            ║
+   ╚═════════════════════════════════╝ */
 .facebook-page {
     text-align: center;
     margin-top: 40px;
@@ -882,8 +944,9 @@ footer {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* ╔═════════════════════════════════╗
+   ║ Content container styles         ║
+   ╚═════════════════════════════════╝ */
 #content-container {
     flex: 1; /* Allow the content to expand and push the footer to the bottom */
 }
-
-

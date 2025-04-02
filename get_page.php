@@ -1,11 +1,17 @@
 <?php
-// Set content type to JSON
+// ╔═════════════════════════════════╗
+// ║ Set response content type        ║
+// ╚═════════════════════════════════╝
 header('Content-Type: application/json');
 
-// Get the page parameter
+// ╔═════════════════════════════════╗
+// ║ Get page parameter from URL      ║
+// ╚═════════════════════════════════╝
 $page = $_GET['page'];
 
-// Determine the content based on the page parameter
+// ╔═════════════════════════════════╗
+// ║ Generate content based on page   ║
+// ╚═════════════════════════════════╝
 switch ($page) {
     case 'home':
         $content = '<div class="hero">
@@ -19,8 +25,7 @@ switch ($page) {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <div class="service-grid">
                 <div class="service-item">
-                                    <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
-
+                    <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
                     <div class="service-content">
                         <h3>Lorem Ipsum</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
@@ -103,6 +108,8 @@ switch ($page) {
         break;
 }
 
-// Return the content as JSON
+// ╔═════════════════════════════════╗
+// ║ Return content as JSON response  ║
+// ╚═════════════════════════════════╝
 echo json_encode(['content' => $content]);
 ?>

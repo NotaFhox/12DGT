@@ -1,8 +1,13 @@
 <?php
+// ╔═════════════════════════════════╗
+// ║ Set response content type       ║
+// ╚═════════════════════════════════╝
 header('Content-Type: application/json');
 
+// ╔═════════════════════════════════╗
+// ║ Mock events data                ║
+// ╚═════════════════════════════════╝
 // Note: In a real implementation, this would use Facebook Graph API
-// This is a placeholder implementation
 $mockEvents = [
     [
         'id' => '1',
@@ -20,5 +25,3 @@ $mockEvents = [
 
 echo json_encode($mockEvents);
 ?>
-```
-<!-- this whole page was a test and ive just left it in -->

@@ -1,8 +1,14 @@
 <?php
+// ╔═════════════════════════════════╗
+// ║ Set response content type       ║
+// ╚═════════════════════════════════╝
 header('Content-Type: application/json');
 
 $currentPage = $_GET['page'] ?? 'home';
 
+// ╔═════════════════════════════════╗
+// ║ Define navigation structure     ║
+// ╚═════════════════════════════════╝
 $navigation = [
     ['title' => 'Home', 'slug' => 'home'],
     ['title' => 'Booking', 'slug' => 'booking'],
@@ -10,7 +16,9 @@ $navigation = [
     ['title' => 'Gallery', 'slug' => 'gallery']
 ];
 
-// Correct the FAQ slug to link to the FAQ section on the homepage
+// ╔═════════════════════════════════╗
+// ║ Add FAQ link for homepage       ║
+// ╚═════════════════════════════════╝
 if ($currentPage === 'home') {
     $navigation[] = ['title' => 'FAQ', 'slug' => 'home#faq'];
 }

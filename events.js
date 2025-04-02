@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const facebookEventsContainer = document.getElementById('facebook-events');
 
+    // ╔═════════════════════════════════╗
+    // ║ Fetch Facebook events function  ║
+    // ╚═════════════════════════════════╝
     async function fetchFacebookEvents() {
         try {
             const response = await fetch('fetch_facebook_events.php');
@@ -34,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // ╔═════════════════════════════════╗
+    // ║ Initialize Facebook SDK         ║
+    // ╚═════════════════════════════════╝
     function initializeFacebookSDK() {
         if (typeof FB !== 'undefined') {
             FB.XFBML.parse(); // Parse the Facebook embed
