@@ -10,7 +10,7 @@
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
+    min-height: 100vh; 
 }
 
 html, body {
@@ -61,12 +61,12 @@ nav ul {
     -webkit-overflow-scrolling: touch;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+
 nav ul::-webkit-scrollbar {
     display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
+
 nav ul {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -131,11 +131,11 @@ nav a:hover {
 @media screen and (max-width: 768px) {
     header {
         padding: 10px;
-        height: 60px; /* Increase height to cover the hamburger menu button */
+        height: 60px; 
     }
 
     .menu-toggle {
-        top: 15px; /* Adjust position to align with the increased header height */
+        top: 15px; 
     }
 
     nav ul {
@@ -377,7 +377,7 @@ nav a.active::after {
     }
 
     nav.mobile-dropdown {
-        max-height: 300px; /* Adjust based on content */
+        max-height: 300px; 
         overflow-y: auto;
     }
 
@@ -412,18 +412,18 @@ nav a.active::after {
    ╚═════════════════════════════════╝ */
 @media screen and (max-width: 768px) {
     nav ul {
-        justify-content: center; /* Ensure the nav links remain centered */
-        flex-wrap: nowrap; /* Prevent wrapping of nav links */
-        overflow-x: auto; /* Allow horizontal scrolling if needed */
+        justify-content: center; 
+        flex-wrap: nowrap; 
+        overflow-x: auto; 
     }
 
     nav ul::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for better aesthetics */
+        display: none;
     }
 
     nav ul {
-        -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-        scrollbar-width: none; /* Hide scrollbar for Firefox */
+        -ms-overflow-style: none; 
+        scrollbar-width: none; 
     }
 }
 
@@ -466,6 +466,11 @@ nav a.active::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: 4px solid #D2B48C; 
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    color: #333;
+    text-align: center;
 }
 
 .hero-content h2 {
@@ -522,7 +527,8 @@ nav a.active::after {
 
 .service-item img {
     width: 100%;
-    height: auto;
+    height: 200px; 
+    object-fit: cover; 
     display: block;
 }
 
@@ -563,7 +569,7 @@ footer {
     background-color: #333;
     color: white;
     border-top: 2px dashed #D2B48C;
-    position: relative; /* Ensure it stays at the bottom of the page */
+    position: relative; 
 }
 
 /* ╔═════════════════════════════════╗
@@ -739,17 +745,17 @@ footer {
     header {
         position: relative;
         padding: 10px;
-        border-bottom: none; /* Remove dotted header line */
+        border-bottom: none; 
     }
 
-    /* Improved menu toggle button */
+   
     .menu-toggle {
         display: block;
         position: absolute;
         top: 15px;
-        left: 30px; /* Adjust position to the left */
-        right: auto; /* Remove right alignment */
-        margin: 5px; /* Add margin to the dropdown menu button */
+        left: 30px; 
+        right: auto; 
+        margin: 5px; 
         width: 40px;
         height: 30px;
         background-color: transparent;
@@ -786,23 +792,23 @@ footer {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 
-    /* Mobile dropdown styles */
+    
     nav {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #fff; /* Match the website's theme */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        background-color: #fff; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         z-index: 100;
-        border-top: 2px solid #D2B48C; /* Use the theme's accent color */
+        border-top: 2px solid #D2B48C; 
         transition: max-height 0.3s ease-out;
     }
 
     nav.mobile-dropdown {
         display: block;
-        max-height: 300px; /* Adjust based on content */
+        max-height: 300px; 
         overflow-y: auto;
     }
 
@@ -817,7 +823,7 @@ footer {
     nav ul li {
         width: 100%;
         margin: 0;
-        border-bottom: 1px solid #eee; /* Add a subtle divider */
+        border-bottom: 1px solid #eee; 
     }
 
     nav a, .home {
@@ -826,7 +832,7 @@ footer {
         padding: 15px;
         text-align: left;
         font-size: 1em;
-        font-family: 'Courier New', monospace; /* Match the website's font */
+        font-family: 'Courier New', monospace; 
         color: #333;
         background-color: #fff;
         border: none;
@@ -834,15 +840,15 @@ footer {
     }
 
     nav a:hover, .home:hover {
-        background-color: #D2B48C; /* Use the theme's accent color */
-        color: #fff; /* Contrast text color */
+        background-color: #D2B48C; 
+        color: #fff; 
     }
 
     nav a.active {
-        background-color: #D2B48C; /* Highlight active link */
+        background-color: #D2B48C; 
         color: #fff;
         font-weight: bold;
-        border-bottom: none; /* Remove the black underline */
+        border-bottom: none;
     }
 }
 
@@ -948,10 +954,10 @@ footer {
    ║ Content container styles         ║
    ╚═════════════════════════════════╝ */
 #content-container {
-    flex: 1; /* Allow the content to expand and push the footer to the bottom */
+    flex: 1; 
 }
 
-/* Gallery Page Styles */
+
 .gallery-page {
     max-width: 1200px;
     margin: 0 auto;
@@ -1044,7 +1050,7 @@ footer {
     }
 }
 
-/* Ensure fadeOut animation is properly defined */
+
 @keyframes fadeOut {
     from {
         opacity: 1;
@@ -1052,4 +1058,68 @@ footer {
     to {
         opacity: 0;
     }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    text-align: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    border: 4px solid #D2B48C; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lightbox .close:hover,
+.lightbox .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
 }

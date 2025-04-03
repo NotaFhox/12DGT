@@ -1,17 +1,8 @@
 <?php
-// ╔═════════════════════════════════╗
-// ║ Set response content type        ║
-// ╚═════════════════════════════════╝
 header('Content-Type: application/json');
 
-// ╔═════════════════════════════════╗
-// ║ Get page parameter from URL      ║
-// ╚═════════════════════════════════╝
 $page = $_GET['page'];
 
-// ╔═════════════════════════════════╗
-// ║ Generate content based on page   ║
-// ╚═════════════════════════════════╝
 switch ($page) {
     case 'home':
         $content = '<div class="hero">
@@ -21,45 +12,59 @@ switch ($page) {
             </div>
         </div>
         <section class="services">
-            <h2>Lorem ipsum dolor sit amet</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h2>Our Services</h2>
+            <p>Explore what Stoney Homestead has to offer</p>
             <div class="service-grid">
-                <div class="service-item">
-                    <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
+                <!-- ╔═════════════════════════════════╗
+                     ║ Booking Service Card            ║
+                     ╚═════════════════════════════════╝ -->
+                <div class="service-item" data-page="booking">
+                    <img src="gallery-images/interior-room.jpg" alt="Booking Services">
                     <div class="service-content">
-                        <h3>Lorem Ipsum</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-                        <button>Select</button>
+                        <h3>Book Now</h3>
+                        <p>Schedule your event and make a reservation at Stoney Homestead.</p>
+                        <button onclick="navigateToPage(\'booking\')">Book a Room</button>
                     </div>
                 </div>
-                <div class="service-item">
-                    <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
+                <!-- ╔═════════════════════════════════╗
+                     ║ Events Service Card             ║
+                     ╚═════════════════════════════════╝ -->
+                <div class="service-item" data-page="events">
+                    <img src="gallery-images/homestead-with-people.jpg" alt="Events">
                     <div class="service-content">
-                        <h3>Dolor Sit</h3>
-                        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.</p>
-                        <button>Select</button>
+                        <h3>Upcoming Events</h3>
+                        <p>Check out our latest events and our community gatherings.</p>
+                        <button onclick="navigateToPage(\'events\')">View Events</button>
                     </div>
                 </div>
-                <div class="service-item">
-                    <img src="https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=" alt="Placeholder">
+                <!-- ╔═════════════════════════════════╗
+                     ║ Gallery Service Card            ║
+                     ╚═════════════════════════════════╝ -->
+                <div class="service-item" data-page="gallery">
+                    <img src="gallery-images/golden-hour-homestead.jpg" alt="Gallery">
                     <div class="service-content">
-                        <h3>Amet Consectetur</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-                        <button>Select</button>
+                        <h3>Photo Gallery</h3>
+                        <p>Browse through our beautiful collection of images.</p>
+                        <button onclick="navigateToPage(\'gallery\')">View Gallery</button>
                     </div>
                 </div>
             </div>
         </section>
         <section id="faq" class="services">
             <h2>Frequently Asked Questions</h2>
-            <p>PLACEHOLDER ALALAL LKOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOONG TEXT PLEASE WRAP FDJHASKLHSAJKLDHJASJKHKJLJKHL</p>
-            <div>
-                <h3>Question 1: Question whun</h3>
-                <p>Answer whun</p>
-                <h3>Question 2: Q2</h3>
-                <p>A2</p>
-                <h3>Question 3: Q3</h3>
-                <p>A3</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3>How do I book a stay?</h3>
+                    <p>You can book a stay through our booking page. Simply fill out the form with your details and preferred date.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What amenities do you offer?</h3>
+                    <p>We offer various amenities including comfortable accommodations, beautiful surroundings, and personalized service.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Are pets allowed?</h3>
+                    <p>Please contact us directly to discuss pet accommodation options.</p>
+                </div>
             </div>
         </section>';
         break;
@@ -101,15 +106,82 @@ switch ($page) {
     <script src="events.js"></script>';
         break;
     case 'gallery':
-        $content = '<h1>Gallery Page</h1>';
+        $content = '<div class="gallery-page">
+            <h1>Stoney Homestead Gallery</h1>
+            <div class="gallery-container">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="gallery-images/historic-homestead.jpg" alt="Historic Homestead">
+                    <div class="gallery-item-caption">Historic Homestead (Early Days)</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="gallery-images/homestead-exterior.jpg" alt="Homestead Exterior">
+                    <div class="gallery-item-caption">Homestead Exterior</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="gallery-images/sunny-homestead.jpg" alt="Sunny Homestead">
+                    <div class="gallery-item-caption">Sunny Day at Stoney Homestead</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="gallery-images/homestead-with-people.jpg" alt="Homestead with People">
+                    <div class="gallery-item-caption">Community at Stoney Homestead</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="gallery-images/homestead-detail.jpg" alt="Homestead Architectural Detail">
+                    <div class="gallery-item-caption">Architectural Details</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="gallery-images/stoney-homestead-sign.jpg" alt="Stoney Homestead Sign">
+                    <div class="gallery-item-caption">Stoney Homestead Entrance</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="gallery-images/interior-room.jpg" alt="Interior Room">
+                    <div class="gallery-item-caption">Historic Interior</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="gallery-images/vintage-homestead.jpg" alt="Vintage Homestead">
+                    <div class="gallery-item-caption">Vintage View</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="gallery-images/golden-hour-homestead.jpg" alt="Golden Hour Homestead">
+                    <div class="gallery-item-caption">Golden Hour</div>
+                </div>
+            </div>
+
+            <!-- Lightbox -->
+            <div id="lightbox" class="lightbox">
+                <span class="close">&times;</span>
+                <img class="lightbox-content" id="lightbox-img">
+                <div id="lightbox-caption"></div>
+            </div>
+        </div>
+        <script>
+        function openLightbox(element) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            const lightboxCaption = document.getElementById("lightbox-caption");
+            
+            lightboxImg.src = element.querySelector("img").src;
+            lightboxCaption.innerHTML = element.querySelector(".gallery-item-caption").innerHTML;
+            
+            lightbox.style.display = "block";
+        }
+
+        document.querySelector(".lightbox .close").addEventListener("click", function() {
+            document.getElementById("lightbox").style.display = "none";
+        });
+
+        // Close lightbox when clicking outside the image
+        document.getElementById("lightbox").addEventListener("click", function(e) {
+            if (e.target === this) {
+                this.style.display = "none";
+            }
+        });
+        </script>';
         break;
     default:
         $content = '<p>Page not found.</p>';
         break;
 }
 
-// ╔═════════════════════════════════╗
-// ║ Return content as JSON response  ║
-// ╚═════════════════════════════════╝
 echo json_encode(['content' => $content]);
 ?>
