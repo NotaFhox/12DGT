@@ -1,13 +1,14 @@
-<!-- ╔═════════════════════════════════╗
-║ Navigation stuff   ║
-╚═════════════════════════════════╝  -->
-
-
 <?php
+// ╔════════════════════════════════════════╗
+// ║ Set response content type              ║
+// ╚════════════════════════════════════════╝
 header('Content-Type: application/json');
 
 $currentPage = $_GET['page'] ?? 'home';
 
+// ╔════════════════════════════════════════╗
+// ║ Define navigation structure            ║
+// ╚════════════════════════════════════════╝
 $navigation = [
     ['title' => 'Home', 'slug' => 'home'],
     ['title' => 'Booking', 'slug' => 'booking'],
@@ -15,10 +16,10 @@ $navigation = [
     ['title' => 'Gallery', 'slug' => 'gallery']
 ];
 
-
-if ($currentPage === 'home') {
-    $navigation[] = ['title' => 'FAQ', 'slug' => 'faq'];
-}
+// ╔════════════════════════════════════════╗
+// ║ Add FAQ link for all pages             ║
+// ╚════════════════════════════════════════╝
+$navigation[] = ['title' => 'FAQ', 'slug' => 'faq'];
 
 echo json_encode($navigation);
 ?>

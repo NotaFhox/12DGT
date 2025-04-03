@@ -12,8 +12,6 @@ switch ($page) {
             </div>
         </div>
         <section class="services">
-            <h2>Our Services</h2>
-            <p>Explore what Stoney Homestead has to offer</p>
             <div class="service-grid">
                 <!-- ╔═════════════════════════════════╗
                      ║ Booking Service Card            ║

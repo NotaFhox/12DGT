@@ -1,22 +1,62 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // ╔════════════════════════════════════════╗
+    // ║ Initialize website on page load        ║
+    // ╚════════════════════════════════════════╝
     loadNavigation();
     loadPage('home');
 
-    
+    // ╔════════════════════════════════════════╗
+    // ║ Navigation function for page switching ║
+    // ╚════════════════════════════════════════╝
     function navigateToPage(pageSlug) {
+        // Check if link is for FAQ section
+        if (pageSlug === "faq") {
+            // Load home page if not already there
+            loadPage('home');
+            // Scroll to FAQ with delay to ensure content is loaded
+            setTimeout(() => {
+                const faqSection = document.getElementById('faq');
+                if (faqSection) {
+                    faqSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                }
+            }, 300);
+            return;
+        }
+        
+        // Get current page to check if we're already on the target page
+        const currentActiveLink = document.querySelector('#nav-links a.active');
+        const currentPage = currentActiveLink ? currentActiveLink.dataset.page : '';
+        
+        // If clicking the current page, add bounce animation without fade effects
+        if (currentPage === pageSlug) {
+            const contentContainer = document.getElementById('content-container');
+            // Remove any fade classes to prevent flashing
+            contentContainer.classList.remove('fade-in', 'fade-out');
+            // Add only the bounce animation
+            contentContainer.classList.add('bounce-animation');
+            setTimeout(() => {
+                contentContainer.classList.remove('bounce-animation');
+                // Don't add fade-in class after animation to prevent flashing
+            }, 500);
+            return;
+        }
+        
+        // Otherwise load the requested page
         loadPage(pageSlug);
     }
 
-
+    // Make navigation function available globally
     window.navigateToPage = navigateToPage;
 
-   
+    // ╔════════════════════════════════════════╗
+    // ║ Handle navigation link clicks          ║
+    // ╚════════════════════════════════════════╝
     function handleLinkClick(event) {
         event.preventDefault();
         const pageSlug = this.dataset.page;
 
-        if (pageSlug === "faq") {
-           
+        // Handle FAQ link special case
+        if (pageSlug === "home#faq" || pageSlug === "faq") {
             loadPage('home');
             setTimeout(() => {
                 const faqSection = document.getElementById('faq');
@@ -27,6 +67,25 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Get current page to check if we're already on the target page
+        const currentActiveLink = document.querySelector('#nav-links a.active');
+        const currentPage = currentActiveLink ? currentActiveLink.dataset.page : '';
+        
+        // If clicking the current page, add bounce animation without fade effects
+        if (currentPage === pageSlug) {
+            const contentContainer = document.getElementById('content-container');
+            // Remove any fade classes to prevent flashing
+            contentContainer.classList.remove('fade-in', 'fade-out');
+            // Add only the bounce animation
+            contentContainer.classList.add('bounce-animation');
+            setTimeout(() => {
+                contentContainer.classList.remove('bounce-animation');
+                // Don't add fade-in class after animation to prevent flashing
+            }, 500);
+            return;
+        }
+
+        // Fade out current content before loading new page
         const contentContainer = document.getElementById('content-container');
         contentContainer.classList.remove('fade-in');
         contentContainer.classList.add('fade-out');
@@ -34,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
             loadPage(pageSlug);
         }, 300);
 
-        
+        // Close mobile menu if open
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('nav');
         if (menuToggle && menuToggle.classList.contains('active')) {
@@ -43,7 +102,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    
+    // ╔════════════════════════════════════════╗
+    // ║ Load navigation menu from server       ║
+    // ╚════════════════════════════════════════╝
     function loadNavigation() {
         fetch('get_navigation.php')
             .then(response => response.json())
@@ -64,7 +125,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Load page content
+    // ╔════════════════════════════════════════╗
+    // ║ Load page content from server          ║
+    // ╚════════════════════════════════════════╝
     function loadPage(pageSlug) {
         fetch(`get_page.php?page=${pageSlug}`)
             .then(response => response.json())
@@ -86,7 +149,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Setup booking form
+    // ╔════════════════════════════════════════╗
+    // ║ Setup booking form submission handler  ║
+    // ╚════════════════════════════════════════╝
     function setupBookingForm() {
         const form = document.getElementById('booking-form');
         if (!form) return;
@@ -120,7 +185,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Update active navigation link
+    // ╔════════════════════════════════════════╗
+    // ║ Update active navigation link          ║
+    // ╚════════════════════════════════════════╝
     function updateActiveLink(pageSlug) {
         const links = document.querySelectorAll('#nav-links a');
         links.forEach(link => {
@@ -132,7 +199,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Dropdown menu functionality
+    // ╔════════════════════════════════════════╗
+    // ║ Mobile menu toggle functionality       ║
+    // ╚════════════════════════════════════════╝
     const header = document.querySelector('header');
     const nav = document.querySelector('nav');
     const menuToggle = document.createElement('button');
@@ -163,7 +232,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Keyboard Navigation for dropdown
+    // ╔════════════════════════════════════════╗
+    // ║ Keyboard navigation for dropdown menu  ║
+    // ╚════════════════════════════════════════╝
     nav.addEventListener('keydown', function(e) {
         const navLinks = nav.querySelectorAll('a');
         const currentIndex = Array.from(navLinks).indexOf(document.activeElement);
@@ -184,7 +255,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Close dropdown when clicking outside
+    // ╔════════════════════════════════════════╗
+    // ║ Close dropdown when clicking outside   ║
+    // ╚════════════════════════════════════════╝
     document.addEventListener('click', function(event) {
         if (!header.contains(event.target) && nav.classList.contains('mobile-dropdown')) {
             nav.classList.remove('mobile-dropdown');
@@ -192,14 +265,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Prevent dropdown from closing when clicking inside nav
+    // ╔════════════════════════════════════════╗
+    // ║ Prevent dropdown from closing when     ║
+    // ║ clicking inside navigation             ║
+    // ╚════════════════════════════════════════╝
     nav.addEventListener('click', function(event) {
         event.stopPropagation();
     });
 
-    // ╔═════════════════════════════════╗
-    // ║ Lightbox Functionality           ║
-    // ╚═════════════════════════════════╝
+    // ╔════════════════════════════════════════╗
+    // ║ Lightbox functionality                 ║
+    // ╚════════════════════════════════════════╝
     function openLightbox(element) {
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightbox-img");
@@ -219,6 +295,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("lightbox").addEventListener("click", function (e) {
         if (e.target === this) {
             this.style.display = "none";
+        }
+    });
+    
+    // ╔════════════════════════════════════════╗
+    // ║ Header scroll effect                   ║
+    // ╚════════════════════════════════════════╝
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
     });
 });
