@@ -950,3 +950,106 @@ footer {
 #content-container {
     flex: 1; /* Allow the content to expand and push the footer to the bottom */
 }
+
+/* Gallery Page Styles */
+.gallery-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.gallery-page h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    background-color: white;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border: 2px solid #D2B48C;
+    transition: transform 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item-caption {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* FAQ Styles */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-left: 4px solid #D2B48C;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.faq-item p {
+    margin: 0;
+    color: #555;
+}
+
+/* Responsive Gallery */
+@media screen and (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .gallery-item img {
+        height: 150px;
+    }
+}
+
+/* Ensure fadeOut animation is properly defined */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
